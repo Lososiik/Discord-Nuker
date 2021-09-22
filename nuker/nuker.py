@@ -13,7 +13,7 @@ print('                                                     Made by Lososik')
 print('1) Nuke')
 print('2) Ban')
 
-TOKEN = 'ODg5NTgxMzM0NDU1MDA5MzYx.YUjVLQ.GUdq5CkyaLXGxcZEZekhy8EGdj8'
+TOKEN = ''
 MAX_CHANNELS = 500
 
 
