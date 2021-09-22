@@ -1,0 +1,2 @@
+write to cmd:
+pip install discord
